@@ -3,6 +3,7 @@ import random
 import string
 import os
 import schedule
+import time
 
 def commit():
     adder = cmd.run("git add .", check=True, shell=True)
@@ -33,12 +34,17 @@ def job():
     commit()
     clean()
 
-schedule.every().monday.at("09:00").do(job)
-schedule.every().tuesday.at("09:00").do(job)
-schedule.every().wednesday.at("09:00").do(job)
-schedule.every().thursday.at("09:00").do(job)
-schedule.every().friday.at("09:00").do(job)
-schedule.every().saturday.at("09:00").do(job)
+schedule.every().monday.at("11:00").do(job)
+schedule.every().tuesday.at("11:00").do(job)
+schedule.every().wednesday.at("11:00").do(job)
+schedule.every().thursday.at("11:00").do(job)
+schedule.every().friday.at("11:00").do(job)
+schedule.every().saturday.at("11:00").do(job)
 
 
-
+while True: 
+  
+    # Checks whether a scheduled task  
+    # is pending to run or not 
+    schedule.run_pending() 
+    time.sleep(1) 
