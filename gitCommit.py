@@ -30,9 +30,12 @@ def clean():
         os.remove(os.path.join( f))
 
 def job():
-    generateFiles()
-    commit()
-    clean()
+    commitVal = random.randint(10,70)
+    for i in range(commitVal):
+        generateFiles()
+        commit()
+        clean()
+        time.sleep(1)
 
 schedule.every().monday.at("11:00").do(job)
 schedule.every().tuesday.at("11:00").do(job)
