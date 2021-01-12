@@ -2,6 +2,7 @@ import subprocess as cmd
 import random
 import string
 import os
+import schedule
 
 def commit():
     adder = cmd.run("git add .", check=True, shell=True)
@@ -23,11 +24,21 @@ def generateFiles():
 
 def clean():
     filelist = [ f for f in os.listdir() if f.endswith(".txt") ]
-    print(filelist)
+    # print(filelist)
     for f in filelist:
         os.remove(os.path.join( f))
 
-generateFiles()
-commit()
-clean()
+def job():
+    generateFiles()
+    commit()
+    clean()
+
+schedule.every().monday.at("09:00").do(job)
+schedule.every().tuesday.at("09:00").do(job)
+schedule.every().wednesday.at("09:00").do(job)
+schedule.every().thursday.at("09:00").do(job)
+schedule.every().friday.at("09:00").do(job)
+schedule.every().saturday.at("09:00").do(job)
+
+
 
