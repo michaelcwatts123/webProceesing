@@ -8,7 +8,7 @@ def commit():
     messages = ['update the repository', 'added new files', 'commiting files', 'general maintence']
     message = random.choice(messages)
     adder = cmd.run("git commit -m \'" + message + "\' ", check=True, shell=True)
-    adder = cmd.run("git push -u origin master -f", check=True, shell=True)
+    adder = cmd.run("git push ", check=True, shell=True)
 
 def generateFiles():
     titleVal = random.randint(1,10)
