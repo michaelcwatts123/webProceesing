@@ -22,9 +22,9 @@ def generateFiles():
     f.close()   
 
 def clean():
-    filelist = [ f for f in os.listdir('coomitControl/') if f.endswith(".txt") ]
+    filelist = [ f for f in os.listdir('commitControl/webProceesing') if f.endswith(".txt") ]
     for f in filelist:
-        os.remove(os.path.join('coomitControl/', f))
+        os.remove(os.path.join('commitControl/webProceesing', f))
 
 generateFiles()
 commit()
