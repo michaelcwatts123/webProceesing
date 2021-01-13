@@ -24,7 +24,7 @@ def generateFiles():
     f.close()   
 
 def clean():
-    filelist = [ f for f in os.listdir() if f.endswith(".txt") ]
+    filelist = [ f for f in os.listdir() if f.endswith(".py") ]
     # print(filelist)
     for f in filelist:
         os.remove(os.path.join( f))
